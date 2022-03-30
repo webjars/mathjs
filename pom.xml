@@ -11,14 +11,14 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>mathjs</artifactId>
-    <version>10.4.2-SNAPSHOT</version>
+    <version>10.4.1-1-SNAPSHOT</version>
     <name>Math.js</name>
     <description>WebJar for Math.js</description>
     <url>http://webjars.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstream.url>https://unpkg.com/mathjs@${version.unsnapshot}/dist</upstream.url>
+        <upstream.url>https://unpkg.com/mathjs@${version.unrevise}/lib/browser</upstream.url>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${project.version}</destDir>
         <requirejs>
             {
@@ -57,7 +57,7 @@
             <plugin>
                 <groupId>com.jamesward</groupId>
                 <artifactId>unsnapshot-maven-plugin</artifactId>
-                <version>0.1</version>
+                <version>0.3</version>
                 <executions>
                     <execution>
                         <phase>initialize</phase>
@@ -80,7 +80,7 @@
                             <target>
                                 <mkdir dir="${destDir}" />
                                 <get src="${upstream.url}/math.js" dest="${destDir}" />
-                                <get src="${upstream.url}/math.min.js" dest="${destDir}" />
+                                <get src="${upstream.url}/math.js.map" dest="${destDir}" />
                             </target>
                         </configuration>
                     </execution>
